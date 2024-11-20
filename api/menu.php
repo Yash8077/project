@@ -1,11 +1,11 @@
 <?php
 session_start();
-
+require 'globals.php';
 // if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 //   header("location: user_login.php");
 //   exit;
 // } else 
-{}
+
   $id = $_GET['id'];
   require '_dbconnect.php';
   $query1 = "SELECT * FROM `restaurant` WHERE `r_id` LIKE '$id'";

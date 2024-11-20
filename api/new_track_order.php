@@ -7,6 +7,7 @@ session_start();
 // if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 //     $login_status = true;
 // }
+require 'globals.php';
 require '_dbconnect.php';
 $uid = $_SESSION['user_id'];
 $feedback = false;

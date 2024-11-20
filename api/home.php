@@ -1,7 +1,7 @@
 <!-- //start the session for saving the data and checks whether the user is logged in or not  -->
 <?php
 // Include the globals.php to access the global variables
-include('globals.php');
+require 'globals.php';
 
 // Check if the user is logged in
 // if ($login_status !== true) {
