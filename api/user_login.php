@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 $login = false;
 $showError = false;
 $showalert = false;
