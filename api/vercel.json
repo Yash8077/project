@@ -1,0 +1,24 @@
+{
+    "functions": {
+      "api/*.php": {
+        "runtime": "vercel-php@0.7.3"
+      }
+    },
+    "routes": [
+      { "src": "/checkout.php", "dest": "/api/checkout.php" },
+      { "src": "/email_verify.php", "dest": "/api/email_verify.php" },
+      { "src": "/home.php", "dest": "/api/home.php" },
+      { "src": "/index.php", "dest": "/api/index.php" },
+      { "src": "/menu.php", "dest": "/api/menu.php" },
+      { "src": "/new_track_order.php", "dest": "/api/new_track_order.php" },
+      { "src": "/order_success.php", "dest": "/api/order_success.php" },
+      { "src": "/orders.php", "dest": "/api/orders.php" },
+      { "src": "/pay.php", "dest": "/api/pay.php" },
+      { "src": "/profile.php", "dest": "/api/profile.php" },
+      { "src": "/track_order.php", "dest": "/api/track_order.php" },
+      { "src": "/user_login.php", "dest": "/api/user_login.php" },
+      { "src": "/user_logout.php", "dest": "/api/user_logout.php" },
+      { "src": "/user_signup.php", "dest": "/api/user_signup.php" }
+    ]
+  }
+  

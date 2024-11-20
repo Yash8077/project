@@ -3,6 +3,8 @@ $login = false;
 $showError = false;
 $showalert = false;
 $login_status = false;
+define('USERNAME', 'admin');
+define('PASSWORD', 'password123');
 
 session_start();
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
@@ -11,36 +13,21 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   header("location: home.php");
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  include 'partials/_dbconnect.php';
-  $email = $_POST["email"];
-  $password = $_POST["password"];
-
-  if ($email == '' || $password == '') {
-    $showError = "Enter valid Email/password";
-  } else {
-    $sql = "SELECT * FROM users WHERE email = '$email'";
-    $result = mysqli_query($conn, $sql);
-    $num = mysqli_num_rows($result);
-
-    if ($num == 1) {
-      while ($row = mysqli_fetch_assoc($result)) {
-        if (password_verify($password, $row['password'])) {
-          $login = true;
-          session_start();
-          $_SESSION['user_id'] = $row['user_id'];
-          $_SESSION['loggedin'] = true;
-          $_SESSION['email'] = $email;
-          $_SESSION['name'] = $row['name'];
-          header("location: home.php");
-        } else {
-          $showError = "Try again. Invalid password.";
-        }
-      }
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
+    $login=true;
+    // Authenticate user
+    if ($username === USERNAME && $password === PASSWORD) {
+        // Set session and cookie for 7 days
+        $_SESSION['loggedin'] = true;
+        setcookie('loggedin', 'true', time() + (7 * 24 * 60 * 60), '/'); // 7 days expiration
+        header('Location: home.php');
+        exit;
     } else {
-      $showalert = "Email not registered / not verified.";
+        $error = 'Invalid username or password';
     }
-  }
 }
 ?>
 
