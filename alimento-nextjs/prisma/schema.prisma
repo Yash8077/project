@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Customer {
+  id   String @id @default(uuid()) @map("_id")
+  name String
+
+  email String  @unique
+  otp   String?
+  role  String  @default("customer")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Vendor {
+  id   String @id @default(uuid()) @map("_id")
+  name String
+
+  email String  @unique
+  otp   String?
+  role  String  @default("vendor")
+
+  dishes Dish[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Category {
+  APPETIZER
+  MAIN_COURSE
+  DESSERT
+  BEVERAGE
+  SNACK
+}
+
+enum Tag {
+  SPICY
+  VEGETARIAN
+  VEGAN
+  GLUTEN_FREE
+  DAIRY_FREE
+  NUT_FREE
+  INDIAN
+  CHINESE
+  ITALIAN
+  ARABIC
+}
+
+model Dish {
+  id          String    @id @default(uuid()) @map("_id")
+  name        String
+  description String?
+  price       Float
+  category    Category 
+  tags        Tag[]   
+
+  vendorId    String    
+  vendor      Vendor    @relation(fields: [vendorId], references: [id])
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
