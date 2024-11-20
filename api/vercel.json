@@ -6,6 +6,7 @@
     },
     "routes": [
       { "src": "/checkout.php", "dest": "/api/checkout.php" },
+      { "src": "/alimento/checkout.php", "dest": "/api/checkout.php" },
       { "src": "/email_verify.php", "dest": "/api/email_verify.php" },
       { "src": "/home.php", "dest": "/api/home.php" },
       { "src": "/index.php", "dest": "/api/index.php" },
