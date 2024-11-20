@@ -4,10 +4,10 @@
 include('globals.php');
 
 // Check if the user is logged in
-if ($login_status !== true) {
-  header("Location: user_login.php");
-  exit;
-}
+// if ($login_status !== true) {
+//   header("Location: user_login.php");
+//   exit;
+// }
 
 // Your home page content here
 ?>
