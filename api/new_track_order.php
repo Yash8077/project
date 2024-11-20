@@ -7,7 +7,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     $login_status = true;
 }
-include 'partials/_dbconnect.php';
+require '_dbconnect.php';
 $uid = $_SESSION['user_id'];
 $feedback = false;
 

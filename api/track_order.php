@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'partials/_dbconnect.php';
+require '_dbconnect.php';
 $uid = $_SESSION['user_id'];
 $feedback = false;
 

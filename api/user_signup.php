@@ -14,7 +14,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
 $showAlert = false;
 $showError = false;
 if($_SERVER["REQUEST_METHOD"]=="POST"){
-  include 'partials/_dbconnect.php';
+  require '_dbconnect.php';
   $name= $_POST["name"];
   $email= $_POST["email"];
 

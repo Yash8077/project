@@ -99,7 +99,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         <div class="container">
             <div class="row">
                 <?php
-                include 'partials/_dbconnect.php';
+                require '_dbconnect.php';
                 $query = "SELECT * FROM `orders` WHERE `user_id` = '" . $_SESSION['user_id'] . "' ORDER BY `dt` DESC";
                 $result = mysqli_query($conn, $query);
                 $num = mysqli_num_rows($result);

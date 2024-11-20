@@ -102,7 +102,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
       <div class="profile-body p-5">
         <img src="images/default_profile.webp" class="profile-image w-[150px] h-[150px] rounded-[50%] mx-auto my-5 shadow-md" alt="Profile Image">
         <?php
-        include 'partials/_dbconnect.php';
+        require '_dbconnect.php';
         $query = "SELECT * FROM `users` WHERE `user_id` = '" . $_SESSION['user_id'] . "'";
         $result = mysqli_query($conn, $query);
         $num = mysqli_num_rows($result);

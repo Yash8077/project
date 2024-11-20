@@ -107,7 +107,7 @@ include('globals.php');
       <!-- Restaurant Card -->
 
       <?php
-      include 'partials/_dbconnect.php';
+      require '_dbconnect.php';
       $query = "SELECT * FROM `restaurant` ORDER BY `r_rating` DESC";
       $result = mysqli_query($conn, $query);
       $num = mysqli_num_rows($result);

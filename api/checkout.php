@@ -1,7 +1,7 @@
 <?php
 session_start();
 //connect to database
-include 'partials/_dbconnect.php';
+require '_dbconnect.php';
 
 $order=$_SESSION['Order'];
 $amount=$_SESSION['amount'];

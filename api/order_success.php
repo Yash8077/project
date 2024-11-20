@@ -75,8 +75,6 @@
     </div>
 
 
-    <!-- footer -->
-<?php include 'partials/_footer.php';?>
 <script>
 window.embeddedChatbotConfig = {
 chatbotId: "gvEIQuZ1QCpui9UuF1UWX",

@@ -6,7 +6,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
   exit;
 } else {
   $id = $_GET['id'];
-  include 'partials/_dbconnect.php';
+  require '_dbconnect.php';
   $query1 = "SELECT * FROM `restaurant` WHERE `r_id` LIKE '$id'";
   $res = mysqli_query($conn, $query1);
   $result = mysqli_fetch_assoc($res);

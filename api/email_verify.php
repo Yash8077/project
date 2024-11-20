@@ -3,7 +3,7 @@ session_start();
 $login = false;
 $showError = false;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include 'partials/_dbconnect.php';
+    require '_dbconnect.php';
     $email = $_SESSION['email'];
     $password = $_POST["password"];
     //to check if the password/ email is blank
