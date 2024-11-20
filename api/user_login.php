@@ -1,10 +1,10 @@
 <?php
 // session_start(); // Uncomment this line to start the session
+include('globals.php');
 session_start(); // Start the session at the very top of the file
 $login = false;
 $showError = false;
 $showalert = false;
-$login_status = false;
 define('EMAIL', 'admin@gmail.com');
 define('PASSWORD', 'password123');
 
