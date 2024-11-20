@@ -3,13 +3,13 @@ $login = false;
 $showError = false;
 $showalert = false;
 $login_status = false;
-define('USERNAME', 'admin');
+define('USERNAME', 'admin@gmail.com');
 define('PASSWORD', 'password123');
 
 session_start();
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   $login_status = true;
-
+  $login = true;
   header("location: home.php");
 }
 
@@ -22,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($username === USERNAME && $password === PASSWORD) {
         // Set session and cookie for 7 days
         $_SESSION['loggedin'] = true;
-        setcookie('loggedin', 'true', time() + (7 * 24 * 60 * 60), '/'); // 7 days expiration
         header('Location: home.php');
         exit;
     } else {
