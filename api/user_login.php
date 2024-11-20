@@ -1,5 +1,6 @@
 <?php
-// session_start();
+// session_start(); // Uncomment this line to start the session
+session_start(); // Start the session at the very top of the file
 $login = false;
 $showError = false;
 $showalert = false;
@@ -7,11 +8,12 @@ $login_status = false;
 define('EMAIL', 'admin@gmail.com');
 define('PASSWORD', 'password123');
 
-
+// Redirect if already logged in
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   $login_status = true;
   $login = true;
   header("Location: home.php");
+  exit; // Always call exit after a header redirect to stop further script execution
 }
 
 // Handle form submission
@@ -21,10 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // Authenticate user
     if ($email == EMAIL && $password == PASSWORD) {
-        // Set session and cookie for 7 days
-        $login=true;
+        // Set session for the user and redirect
         $_SESSION['loggedin'] = true;
-        $login_status=true;
+        $login_status = true;
+        $login = true;
         header('Location: home.php');
         exit;
     } else {
@@ -32,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

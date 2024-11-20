@@ -1,12 +1,12 @@
 <!-- //start the session for saving the data and checks whether the user is logged in or not  -->
 <?php
-// session_start();
+// session_start(); // Uncomment this line to start the session
+session_start(); // Always call session_start() at the top
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
   header("Location: user_login.php");
-  exit;
+  exit; // Call exit to stop further execution after the redirect
 }
 ?>
-
 
 
 <!DOCTYPE html>
