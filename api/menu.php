@@ -315,7 +315,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
               </tbody>
             </table>
             <div id="addVal"></div>
-            <form action="/alimento/checkout.php" method="post">
+            <form action="checkout.php" method="post">
               <input type="hidden" value="<?php echo $id ?>" name="restaurant_id" />
               <a href="checkout.php">
                 <button id="checkoutBtn" class="check-out-btn checkOutBtn bg-[#e64a19] text-white w-full h-10 text-sm hidden"
