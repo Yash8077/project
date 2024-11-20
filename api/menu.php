@@ -1,17 +1,18 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
-  header("location: user_login.php");
-  exit;
-} else {
+// if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
+//   header("location: user_login.php");
+//   exit;
+// } else 
+{}
   $id = $_GET['id'];
   require '_dbconnect.php';
   $query1 = "SELECT * FROM `restaurant` WHERE `r_id` LIKE '$id'";
   $res = mysqli_query($conn, $query1);
   $result = mysqli_fetch_assoc($res);
   $rid = $result['r_id'];
-}
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $_SESSION['rest_id'] = $_POST['restaurant_id'];
