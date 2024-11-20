@@ -1,11 +1,9 @@
 <!-- //start the session for saving the data and checks whether the user is logged in or not  -->
 <?php
+session_start();
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
-  header("location: user_login.php");
+  header("Location: user_login.php");
   exit;
-}
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-  $login_status = true;
 }
 ?>
 

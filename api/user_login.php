@@ -1,27 +1,30 @@
 <?php
+session_start();
 $login = false;
 $showError = false;
 $showalert = false;
 $login_status = false;
-define('USERNAME', 'admin@gmail.com');
+define('EMAIL', 'admin@gmail.com');
 define('PASSWORD', 'password123');
 
-session_start();
+
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   $login_status = true;
   $login = true;
-  header("location: home.php");
+  header("Location: home.php");
 }
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'] ?? '';
+    $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
-    $login=true;
+    
     // Authenticate user
-    if ($username === USERNAME && $password === PASSWORD) {
+    if ($email == EMAIL && $password == PASSWORD) {
         // Set session and cookie for 7 days
+        $login=true;
         $_SESSION['loggedin'] = true;
+        $login_status=true;
         header('Location: home.php');
         exit;
     } else {
